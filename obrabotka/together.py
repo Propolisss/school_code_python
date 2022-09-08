@@ -1,0 +1,15 @@
+n = int(input())
+summ = 0
+count = 0
+pr = 1
+sr = 0
+fs = 0
+ls = n % 10
+while n != 0:
+    fs = n
+    summ += n % 10
+    pr *= n % 10
+    n //= 10
+    count += 1
+sr = summ / count
+print(summ, count, pr, sr, fs, fs + ls, sep = '\n')
