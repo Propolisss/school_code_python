@@ -7,4 +7,4 @@ for i in range(1, 10000):
     else:
         n += '0'
     if (int(n, 2) < 100):
-        print(i)
+        print(int(n, 2))
