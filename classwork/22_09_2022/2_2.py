@@ -1,0 +1,1 @@
+print(list(chr(97 + i) for i in range(int(input()))))
