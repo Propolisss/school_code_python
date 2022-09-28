@@ -1,17 +1,3 @@
-n = int(input())
-st = input()
-stt = ''
+numbers = [2, 6, 3, 14, 10, 4, 11, 16, 12, 5, 4, 16, 1, 0, 8, 16, 10, 10, 8, 5, 1, 11, 10, 10, 12, 0, 0, 6, 14, 8, 2, 12, 14, 5, 6, 12, 1, 2, 10, 14, 9, 1, 15, 1, 2, 14, 16, 6, 7, 5]
 
-for i in range(len(st)):
-    ordd = ord(st[i])
-    if 128 - ordd > n:
-        if ordd + n < 128:
-            stt += chr(ordd + n)
-        else:
-            stt += chr(ordd - n)
-    else:
-        if 128 - ordd > 13:
-            stt += chr(ordd + (26 - n))
-        else:
-            stt += chr(ordd - n)
-print(stt)
+print('YES') if (5 in numbers or 17 in numbers) else print('NO')
