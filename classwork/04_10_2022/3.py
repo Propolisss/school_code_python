@@ -1,4 +1,4 @@
-from itertools import *
+from itertools import product
 
 def is_gl(st):
     for i in range(1, len(st)):
@@ -17,8 +17,10 @@ def is_sogl(st):
             return False
     return True
 
+
 sogl = 'BCD'
 gl = 'AE'
+
 s = list(map(''.join, product('ABCDE', repeat=4)))
 count = 0
 
@@ -26,4 +28,6 @@ for i in range(len(s)):
     if (is_gl(s[i])) and (is_sogl(s[i])):
         count += 1
 print(count)
-print(is_gl('AEDC'), is_sogl('AEDC'))
+
+
+
