@@ -1,0 +1,1 @@
+print((open('24.txt').readline().replace('RUSTEM', '')).count('RUS'))
