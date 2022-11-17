@@ -1,9 +1,6 @@
-s = []
+s = [i for i in open('24-164.txt')]
+
 lens = []
-
-for i in open('24-164.txt'):
-    s.append(i)
-
 dic = dict()
 all_dic = dict()
 st = ''
@@ -29,22 +26,22 @@ for i in range(len(s)):
         local_max = max(local_max, len(st))
     lens.append(local_max)
 
-for i in range(len(s)):
-    if lens[i] == maxx_len:
-        for j in s[i]:
-            if j in dic:
-                dic[j] += 1
-            else:
-                dic[j] = 1
-        break
+row = lens.index(maxx_len)
+for i in s[row]:
+    if i in dic:
+        dic[i] += 1
+    else:
+        dic[i] = 1
 
 maxx_let = ''
 maxx_count = float('-inf')
 
 for i in dic:
     if dic[i] > maxx_count:
-        maxx_count = dic[i]
-        maxx_let = i
-print(maxx_let, all_dic[maxx_let])
-
-
+        if (len(maxx_let) > 0 and i < maxx_let):
+            maxx_count = dic[i]
+            maxx_let = i
+        else:
+            maxx_count = dic[i]
+            maxx_let = i
+print(maxx_let, all_dic[maxx_let], sep='')
