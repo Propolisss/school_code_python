@@ -1,17 +1,21 @@
+from functools import lru_cache
+from itertools import *
 
-def div(n):
-    dels_ = set()
 
-    for i in range(10, 100):
+@lru_cache(None)
+def simple(n):
+    for i in range(2, int(n ** 0.5) + 1):
         if n % i == 0:
-            dels_.add(i)
-        if len(dels_) > 35:
-            return {0}
-    return dels_
+            return False
+    return True
 
+ans = set()
 
-
-for i in range(333555, 777999 + 1):
-    dels = div(i)
-    if len(dels) == 35:
-        print(min(dels), max(dels))
+for i in range(1_411_111_115, 1_411_111_127 + 1):
+    if '0' in str(i):
+        continue
+    s = set(map(''.join, permutations(str(i), 10)))
+    for j in s:
+        if simple(int(j)):
+            print(i)
+            break
