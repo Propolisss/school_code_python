@@ -1,13 +1,22 @@
-from itertools import *
+from sys import *
+from functools import *
+setrecursionlimit(100_000)
 
-def simple(n):
-    return all(n % i != 0 for i in range(2, int(n ** 0.5) + 1))
+@lru_cache(1_000_000)
+def f(n):
+    if n == 0:
+        return 6
+    elif n > 0 and (n % 2 == 0):
+        return 1 + f(n // 2)
+    else:
+        return f(n // 2)
 
-for i in range(1_411_111_115, 1_411_111_127 + 1):
-    if '0' in str(i):
-        continue
-    s = set(map(''.join, permutations(str(i))))
-    for num in s:
-        if simple(int(num)):
-            print(i)
-            break
+
+count = 0
+
+for i in range(1, 1_000_000_000 + 1):
+    if i % 1_000_000 == 0:
+        print(i, count)
+    if f(i) == 9:
+        count += 1
+print(count)
