@@ -1,7 +1,5 @@
 def f(start, end, last):
-    if start > end:
-        return 0
-    elif start == 6:
+    if start > end or start == 6:
         return 0
     elif start == end:
         return 1
