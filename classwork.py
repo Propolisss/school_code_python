@@ -1,11 +1,3 @@
-file = open('27B.txt')
-n = int(file.readline())
-dic = {}
-
-for i in range(n):
-    num = int(file.readline())
-    if str(num)[0] in dic:
-        dic[str(num)[0]] += 1
-    else:
-        dic[str(num)[0]] = 1
-print(min(dic.values()))
+n1 = 5 * 2 ** 23
+n2 = 300 ** 2 * (512 * 2 ** 13 / (150 ** 2 * 4))
+print(n1 / n2)
