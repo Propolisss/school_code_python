@@ -1,25 +1,11 @@
-file = open('9.txt')
-nums = []
+from itertools import *
 
-for i in file:
-    nums.append([int(i) for i in i.split()])
+def f(x, y, w, z):
+    return (not(z <= x)) or (y == w) or w
 
-
-count = 0
-
-for i in range(len(nums)):
-    j = 0
-    flag1 = 0
-    flag2 = 0
-
-    while j < len(nums[i]) - 1 and (nums[i][j] > nums[i][j + 1]):
-        j += 1
-        flag1 = True
-
-    while j < len(nums[i]) - 1 and (nums[i][j] < nums[i][j + 1]):
-        j += 1
-        flag2 = True
-
-    if (j == (len(nums[i]) - 1)) and flag1 and flag2:
-        count += 1
-print(count)
+for a in product([0, 1], repeat=6):
+    table = [(0, 0, a[0], a[1]), (0, a[2], a[3], a[4]), (0, 1, a[5], 0)]
+    if len(table) == len(set(table)):
+        for p in permutations('xywz'):
+            if [f(**dict(zip(p, row))) for row in table] == [0, 0, 0]:
+                print(*p, sep='')
