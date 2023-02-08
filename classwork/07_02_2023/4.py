@@ -1,7 +1,7 @@
 file = open('27-45a.txt')
 n = int(file.readline())
 ost = []
-flags = [[0, 0] for _ in range(n)]
+flags = [0] * n
 summ1 = 0
 summ2 = 0
 summ3 = 0
@@ -17,26 +17,26 @@ ost.sort()
 
 if summ1 % 2 == 0:
     for i in range(len(ost)):
-        if (summ1 - ost[i][0]) & 1 and not flags[i][0]:
+        if (summ1 - ost[i][0]) & 1 and not flags[i]:
             summ1 -= ost[i][0]
             summ3 += ost[i][0]
-            flags[i][0] = 1
+            flags[i] = 1
             break
-        elif (summ1 - ost[i][1]) & 1 and not flags[i][1]:
+        elif (summ1 - ost[i][1]) & 1 and not flags[i]:
             summ1 -= ost[i][1]
             summ3 += ost[i][1]
-            flags[i][1] = 1
+            flags[i] = 1
             break
 if summ2 % 2 == 0:
     for i in range(len(ost)):
-        if (summ2 - ost[i][0]) & 1 and not flags[i][0]:
+        if (summ2 - ost[i][0]) & 1 and not flags[i]:
             summ2 -= ost[i][0]
             summ3 += ost[i][0]
-            flags[i][0] = 1
+            flags[i] = 1
             break
-        elif (summ2 - ost[i][1]) & 1 and not flags[i][1]:
+        elif (summ2 - ost[i][1]) & 1 and not flags[i]:
             summ2 -= ost[i][1]
             summ3 += ost[i][1]
-            flags[i][1] = 1
+            flags[i] = 1
             break
-print(summ1, summ2, summ3)
+print(summ3)
