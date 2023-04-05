@@ -1,0 +1,1 @@
+print(max(len(i) for i in open('24_7094.txt').readline().replace('D', 'C').replace('F', 'C').replace('U', 'A').replace('CA', '*').replace('A', ' ').replace('C', ' ').split()))
