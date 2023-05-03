@@ -1,11 +1,11 @@
 from itertools import product
 from random import randint
-letters = 'XYZ'
+letters = '123'
 
 def f1(st):
     #file = open('11').readline()
     file = st
-    lett = '123'
+    lett = letters
     maax = 0
     all = []
     for i in range(1, 7):
@@ -56,9 +56,14 @@ def f3(st):
                 maxx = max(maxx, len(temp))
     return maxx
 
+
+count_false = 0
+count_true = 0
 while True:
     stt = ''.join([letters[randint(0, 2)] for i in range(1_000)])
     res1 = f1(stt)
     res2 = f2(stt)
     res3 = f3(stt)
-    print(res1, res2, res3, (res1 + res2 + res3) == 3, res2 == res3)
+    if res1 == res2 == res3: count_true += 1
+    else: count_false += 1
+    print(res1, res2, res3, res1 == res2 == res3, res2 == res3, count_false, count_true)
