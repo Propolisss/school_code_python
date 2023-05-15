@@ -18,7 +18,7 @@ def f1():
 
     for i in range(n):
         n1, n2 = map(int, f.readline().split())
-        n2 = (n2 + 30) // 30
+        n2 = (n2 + 29) // 30
         pref[i] = n2
         nums[i] = n1
 
@@ -41,7 +41,7 @@ def f2():
 
     for i in range(n):
         n1, n2 = map(int, fff.readline().split())
-        n2 = (n2 + 30) // 30
+        n2 = (n2 + 29) // 30
         pref[i] = n2
         nums[i] = n1
 
