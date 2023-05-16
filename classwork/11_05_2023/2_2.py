@@ -1,8 +1,5 @@
 from random import randint
 
-
-
-
 #file = open('27_A_7275.txt')
 #n, m = map(int, file.readline().split())
 
